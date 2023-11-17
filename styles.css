@@ -1,0 +1,292 @@
+body {
+    box-sizing: border-box;
+    display: grid;
+    min-height: 100vh;
+    margin: 0;
+
+    grid-template-areas:
+        "header header header"
+        "nav content content"
+        "footer footer footer";
+    grid-template-rows: 100px auto 70px;
+    grid-template-columns: 150px auto auto;
+
+    --main-color: white;
+    --second-color: black;
+}
+
+header {
+    grid-area: header;
+    background-color: var(--second-color);
+    color: var(--main-color)
+}
+
+nav {
+    grid-area: nav;
+    background-color: aliceblue;
+}
+
+nav .item {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+nav .item:hover {
+    background-color: brown;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+nav .active-item {
+    background-color: green;
+    color: var(--main-color);
+}
+
+main {
+    grid-area: content;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+footer {
+    grid-area: footer;
+    background-color: var(--second-color);
+    color: var(--main-color);
+}
+
+header, footer {
+    text-align: center;
+    font-size: 1.5em;
+    padding-top: auto;
+    padding-bottom: auto;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.digital-clock .clock-button-section {
+    display: flex;
+    justify-content: space-evenly;
+    min-height: 100px;
+} 
+
+.digital-clock .clock-button-section .clock-button {
+    display: flex;
+    flex-direction: column;
+    
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+.clock-button-section__top .clock-button {
+    justify-content: end;
+}
+.clock-button-section__bottom .clock-button {
+    justify-content: top
+}
+
+.digital-clock .clock-button-section .clock-button .clock-button-body {
+    font-size: 1.4em;
+    background-color: grey;
+    cursor: pointer;
+    height: 40px;
+    width: 80px;
+    transition: height 1s;
+
+    border-style: solid;
+    border-width: 5px;
+    border-left-color: grey;
+    border-right-color: grey;
+}
+.digital-clock .clock-button-section .clock-button .clock-button-head {
+    background-color: var(--second-color);
+    color: var(--main-color);
+    padding: 10px;
+    border-style: solid;
+    border-width: 5px;
+    border-left-color: grey;
+    border-right-color: grey;
+}
+.digital-clock .clock-button-section .clock-button.pressed .clock-button-body {
+    height: 0;
+}
+.digital-clock .clock-button-section__top .clock-button .clock-button-head,
+.digital-clock .clock-button-section__top .clock-button .clock-button-body {
+    border-top-color: grey;
+    border-bottom-width: 0;
+}
+
+.digital-clock .clock-button-section__bottom .clock-button .clock-button-head,
+.digital-clock .clock-button-section__bottom .clock-button .clock-button-body {
+    border-bottom-color: grey;
+    border-top-width: 0;
+}
+
+.digital-clock .clockface {
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    border: 10px solid grey;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+
+.clock-number {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.clock-number .top, .clock-number .bottom {
+    width: 4vw;
+    height: 4vw;
+    border: transparent;
+    border-style: solid;
+    border-width: 50px;
+}
+
+.clock-number .top {
+    border-bottom-width: 25px;
+}
+.clock-number .bottom {
+    border-top-width: 25px;
+}
+
+@media screen and (max-width: 1600px) {
+    .digital-clock .clockface {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .clock-number .top, .clock-number .bottom {
+        border-width: 30px;
+    }
+    .clock-number .top {
+        border-bottom-width: 15px;
+    }
+    .clock-number .bottom {
+        border-top-width: 15px;
+    }
+}
+
+
+.clock-number__0 .top {
+    border-left-color: var(--second-color);
+    border-right-color: var(--second-color);
+    border-top-color: var(--second-color);
+}
+.clock-number__0 .bottom {
+    border-left-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+    border-right-color: var(--second-color);
+}
+
+.clock-number__1 .top {
+    border-right-color: var(--second-color);
+}
+.clock-number__1 .bottom {
+    border-right-color: var(--second-color);
+}
+
+.clock-number__2 .top {
+    border-top-color: var(--second-color);
+    border-right-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+}
+.clock-number__2 .bottom {
+    border-left-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+    border-top-color: var(--second-color);
+}
+
+.clock-number__3 .top {
+    border-top-color: var(--second-color);
+    border-right-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+}
+.clock-number__3 .bottom {
+    border-top-color: var(--second-color);
+    border-right-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+}
+
+.clock-number__4 .top {
+    border-left-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+    border-right-color: var(--second-color);
+}
+.clock-number__4 .bottom {
+    border-top-color: var(--second-color);
+    border-right-color: var(--second-color);
+}
+
+.clock-number__5 .top {
+    border-top-color: var(--second-color);
+    border-left-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+}
+.clock-number__5 .bottom {
+    border-right-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+    border-top-color: var(--second-color);
+}
+
+.clock-number__6 .top {
+    border-top-color: var(--second-color);
+    border-left-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+}
+.clock-number__6 .bottom {
+    border-left-color: var(--second-color);
+    border-top-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+    border-right-color: var(--second-color);
+}
+
+.clock-number__7 .top {
+    border-top-color: var(--second-color);
+    border-right-color: var(--second-color);
+}
+.clock-number__7 .bottom {
+    border-right-color: var(--second-color);
+}
+
+.clock-number__8 .top, .clock-number__8 .bottom {
+    border-left-color: var(--second-color);
+    border-top-color: var(--second-color);
+    border-right-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+}
+
+.clock-number__9 .top {
+    border-left-color: var(--second-color);
+    border-top-color: var(--second-color);
+    border-right-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+}
+.clock-number__9 .bottom {
+    border-top-color: var(--second-color);
+    border-right-color: var(--second-color);
+    border-bottom-color: var(--second-color);
+}
+
+.clock-separator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.clock-separator .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    border: 3px solid var(--second-color);
+    background-color: var(--second-color);
+    margin: 10px;
+}
