@@ -4,6 +4,8 @@
     const $pauseBtn = document.getElementById('pause-btn');
     const $resetBtn = document.getElementById('reset-btn');
 
+    const $statusLable = document.getElementById('status');
+
     const $firstSecondsDigit = document.getElementById('first-seconds');
     const $secondSecondsDigit = document.getElementById('second-seconds');
     const $firstMinutesDigit = document.getElementById('first-minutes');
@@ -22,29 +24,22 @@
     let restSeconds = WORK_MINUTES * SECONDS_IN_MINUTE;
 
     $startBtn.addEventListener('click', (event) => {
-        $startBtn.classList.add('pressed');
-        $pauseBtn.classList.remove('pressed');
         start();
     });
     $pauseBtn.addEventListener('click', (event) => {
-        $pauseBtn.classList.add('pressed');
-        $startBtn.classList.remove('pressed');
         pause();
     });
     $resetBtn.addEventListener('click', (event) => {
-        $resetBtn.classList.add('pressed');
-        $pauseBtn.classList.remove('pressed');
-        $startBtn.classList.remove('pressed');
         reset();
-
-        setTimeout(() => {
-            $resetBtn.classList.remove('pressed');
-        }, 1000);
     });
 
 
     function start() {
         if (timerId) clearInterval(timerId);
+        $startBtn.classList.add('pressed');
+        $pauseBtn.classList.remove('pressed');
+        $statusLable.innerHTML = 'Running';
+
         startDate = new Date();
         timerId = setInterval(function() {
             if (restSeconds <= 0) {
@@ -64,14 +59,26 @@
     }
 
     function pause() {
+        $statusLable.innerHTML = 'Paused';
+        $pauseBtn.classList.add('pressed');
+        $startBtn.classList.remove('pressed');
         clearInterval(timerId);
     }
 
     function reset() {
+        $resetBtn.classList.add('pressed');
+        $pauseBtn.classList.remove('pressed');
+        $startBtn.classList.remove('pressed');
+
         pause();
+
         restSeconds = WORK_MINUTES * SECONDS_IN_MINUTE;
         renderClock();
         document.title = fixedTitle;
+
+        setTimeout(() => {
+            $resetBtn.classList.remove('pressed');
+        }, 1000);
     }
 
     function renderClock() {

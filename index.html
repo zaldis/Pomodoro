@@ -8,7 +8,7 @@
         <script src="./index.js" defer></script>
     </head>
     <body>
-        <header>Zaldis Pomodoro | activated</header>
+        <header><p>Pomodoro | <span id="status">Ready</span></p></header>
         <nav>
             <div class="item active-item">Pomodoro</div>
             <div class="item">Preferences</div>
@@ -17,7 +17,7 @@
         <main>
             <time datetime="PT20M">
                 <div class="digital-clock">
-                    <div class="clock-button-section clock-button-section__top">
+                    <div class="clock-button-section">
                         <div id="start-btn" class="clock-button">
                             <div class="clock-button-head">Start</div>
                             <div class="clock-button-body"></div>
@@ -61,14 +61,14 @@
                             <div class="bottom"></div>
                         </div>
                     </div>
-                    <div class="clock-button-section clock-button-section__bottom">
+                    <div class="clock-button-section">
                         <div id="pause-btn" class="clock-button">
-                            <div class="clock-button-body"></div>
                             <div class="clock-button-head">Pause</div>
+                            <div class="clock-button-body"></div>
                         </div>
                         <div id="reset-btn" class="clock-button">
-                            <div class="clock-button-body"></div>
                             <div class="clock-button-head">Reset</div>
+                            <div class="clock-button-body"></div>
                         </div>
                     </div>
                 </div>
